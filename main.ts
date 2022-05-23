@@ -8,10 +8,10 @@ basic.forever(function on_forever() {
     let entf = callibot.entfernung(KEinheit.cm)
     if (entf <= 7) {
         callibot.motorStop(KMotor.beide, KStop.Bremsen)
-    }
-    
-    if (callibot.readLineSensor(KSensor.links, KSensorStatus.dunkel) || callibot.readLineSensor(KSensor.rechts, KSensorStatus.dunkel)) {
+    } else if (callibot.readLineSensor(KSensor.links, KSensorStatus.dunkel) || callibot.readLineSensor(KSensor.rechts, KSensorStatus.dunkel)) {
         callibot.motorStop(KMotor.beide, KStop.Bremsen)
+    } else {
+        callibot.motor(KMotor.beide, KDir.vorwärts, 50)
     }
     
 })

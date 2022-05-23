@@ -13,10 +13,11 @@ def on_forever():
     if entf <= 7:
         callibot.motor_stop(KMotor.BEIDE, KStop.BREMSEN)
 
-    if callibot.read_line_sensor(KSensor.LINKS, KSensorStatus.DUNKEL) or callibot.read_line_sensor(KSensor.RECHTS, KSensorStatus.DUNKEL):
+    elif callibot.read_line_sensor(KSensor.LINKS, KSensorStatus.DUNKEL) or callibot.read_line_sensor(KSensor.RECHTS, KSensorStatus.DUNKEL):
         callibot.motor_stop(KMotor.BEIDE, KStop.BREMSEN)
         
-    
+    else:
+        callibot.motor(KMotor.BEIDE, KDir.VORWÄRTS, 50)
         
 
     
